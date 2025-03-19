@@ -1,0 +1,156 @@
+@font-face {
+    font-family: 'Archivo';
+    src: url('assets/font/ARCHIVO-REGULAR.TTF') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+  }
+@font-face {
+    font-family: 'Archivo-bold';
+    src: url('assets/font/ARCHIVO-BOLD.TTF') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+  }
+@font-face {
+    font-family: 'Archivo-black';
+    src: url('assets/font/ARCHIVO-BLACK.TTF') format('truetype');
+    font-style: normal;
+    font-weight: bolder;
+  }
+
+
+
+:root{
+    font-family: "Archivo";
+    font-weight: normal;
+    --bk:#1D1C1C;
+    --green:#9eac8e;
+    --white:#ebebeb;
+    --orange:#ec6e44;
+    color:white;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--bk);
+    
+}
+
+main{
+    padding: 1rem 15%;
+}
+
+header{
+    position: relative;
+    overflow: hidden;
+    height: 32vw;
+    background-image: url(assets/img/background-banner.jpg);
+    background-position: 50% 37%;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1{
+    font-family: 'Archivo-black';
+}
+
+h2{
+    font-weight: bolder;
+}
+
+.body-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:2rem;
+}
+
+.separador-title{
+    width: 10vw;
+}
+
+.invert{
+    transform: scaleX(-100%);
+}
+
+.galery{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(500px,1fr));
+    gap:1.5rem;
+}
+
+.card{
+    border-radius: 40px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 3/2;
+    padding: 15%;
+}
+
+.card-bk{
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: -1;
+    max-width: 100%;
+}
+
+.card--front{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.card--front img{
+    width: 40%;
+}
+
+button{
+    border-radius: 6px;
+    border: none;
+    background-color: var(--orange);
+    padding: 0.5rem 1.5rem;
+    width: max-content;
+    text-align: center;
+    color: white;
+    font-family: 'Archivo-black';
+}
+
+
+/* giro de las cartas */
+.card--back{
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.action{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:0.5rem;
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    transform: translateX(-50%);
+    width: max-content;
+}
+
+.card:hover .card--back{
+    display: flex;
+}
+.card:hover .card--front{
+    display: none;
+}
