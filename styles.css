@@ -138,12 +138,20 @@ h2{
     transition: all 0.3s ease-in-out;
 }
 
+.card--front, .card--back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20%;
+}
+
 .card--front{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
-    animation: fadeIn 0.6s ease-in;
+    animation: fadeIn 1s ease-in;
 }
 .card--front img{
     width: 40%;
@@ -177,7 +185,7 @@ a:hover,button:hover{
     justify-content: center;
     align-items: center;
     height: 100%;
-    animation: fadeOut 0.2s normal;
+    animation: fadeOut 1.2s normal;
 }
 
 .action{
@@ -200,12 +208,11 @@ a:hover,button:hover{
 
 .card:hover .card--back{
     display: flex;
-    animation: fadeIn 0.6s ease-in;
+    animation: fadeIn 1s ease-in;
 }
 .card:hover .card--front{
-    animation: fadeOut 0.2s normal;
+    animation: fadeOut 1.2s normal;
     opacity: 0;
-    visibility: hidden;
     display: none;
     
 }
@@ -219,10 +226,7 @@ a:hover,button:hover{
     0%{
         display: none;
     }
-    50% {
-        display: none;
-      }
-      51%{
+    1% {
         display: flex;
         opacity: 0;
       }
