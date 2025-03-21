@@ -42,7 +42,25 @@ body{
 
 main{
     padding: 1rem 15%;
+    position: relative;
 }
+
+.main-background{
+    position: absolute;
+    top:4rem;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: -1;
+    width: 100%;
+}
+
+.main-background img{
+    width: 30%;
+}
+
+
 
 header{
     position: relative;
@@ -55,21 +73,34 @@ header{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap:4rem;
+}
+
+span{
+    color: var(--green);
+}
+
+.header-logo{
+    width: 210px;
 }
 
 h1{
     font-family: 'Archivo-black';
+    font-size: clamp(2rem,3.2vw,3.3rem);
 }
 
 h2{
-    font-weight: bolder;
+    font-family: 'Archivo-bold';
+    font-size: clamp(1.5rem,3vw,2.6rem);
 }
 
 .body-title{
+    margin-top: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap:2rem;
+    gap:4rem;
+    margin-bottom: 3rem;
 }
 
 .separador-title{
@@ -87,11 +118,11 @@ h2{
 }
 
 .card{
-    border-radius: 40px;
+    border-radius: 50px;
     overflow: hidden;
     position: relative;
     aspect-ratio: 3/2;
-    padding: 15%;
+    padding: 20%;
 }
 
 .card-bk{
@@ -100,6 +131,7 @@ h2{
     left: 0;
     z-index: -1;
     max-width: 100%;
+    transition: all 0.3s ease-in-out;
 }
 
 .card--front{
@@ -107,20 +139,29 @@ h2{
     justify-content: center;
     align-items: center;
     height: 100%;
+    animation: fadeIn 0.6s ease-in;
 }
 .card--front img{
     width: 40%;
 }
 
-button{
-    border-radius: 6px;
+a,button{
+    border-radius: 12px;
     border: none;
     background-color: var(--orange);
-    padding: 0.5rem 1.5rem;
+    padding: 0.7rem 1.8rem;
     width: max-content;
     text-align: center;
     color: white;
     font-family: 'Archivo-black';
+    font-weight: 400;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+}
+
+a:hover,button:hover{
+    background-color: var(--green);
 }
 
 
@@ -132,6 +173,7 @@ button{
     justify-content: center;
     align-items: center;
     height: 100%;
+    animation: fadeOut 0.2s normal;
 }
 
 .action{
@@ -148,9 +190,54 @@ button{
     width: max-content;
 }
 
+.action p{
+    font-size: 1.3rem;
+}
+
 .card:hover .card--back{
     display: flex;
+    animation: fadeIn 0.6s ease-in;
 }
 .card:hover .card--front{
+    animation: fadeOut 0.2s normal;
+    opacity: 0;
+    visibility: hidden;
     display: none;
+    
 }
+
+.card:hover .card-bk{
+    filter: brightness(0.6);
+    
+}
+
+@keyframes fadeIn {
+    0%{
+        display: none;
+    }
+    50% {
+        display: none;
+      }
+      51%{
+        display: flex;
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+        
+      }
+  }
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+      display: flex;
+    }
+    99%{
+        display: flex;
+    }
+    100% {
+      opacity: 0;
+      display: none;
+    }
+  }
