@@ -68,12 +68,15 @@ header{
     height: 32vw;
     background-image: url(assets/img/background-banner.jpg);
     background-position: 50% 37%;
+    background-size: cover;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap:4rem;
+    gap:clamp(1rem,4vw,4rem);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 span{
@@ -81,17 +84,18 @@ span{
 }
 
 .header-logo{
-    width: 210px;
+    width: clamp(75px,10%,210px);
 }
 
 h1{
     font-family: 'Archivo-black';
-    font-size: clamp(2rem,3.2vw,3.3rem);
+    font-size: clamp(1rem,3.2vw,3.3rem);
 }
 
 h2{
     font-family: 'Archivo-bold';
-    font-size: clamp(1.5rem,3vw,2.6rem);
+    font-size: clamp(1rem,3vw,2.6rem);
+    text-align: center;
 }
 
 .body-title{
@@ -99,7 +103,7 @@ h2{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap:4rem;
+    gap:clamp(1rem,4vw,4rem);
     margin-bottom: 3rem;
 }
 
@@ -239,5 +243,18 @@ a:hover,button:hover{
     100% {
       opacity: 0;
       display: none;
+    }
+  }
+
+  @media (max-width: 900px) {
+    main{
+        padding: 1rem;
+    }
+  }
+  @media (max-width: 550px) {
+    .galery {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
     }
   }
