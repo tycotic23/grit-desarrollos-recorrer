@@ -117,8 +117,11 @@ h2{
 
 .galery{
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(500px,1fr));
+    grid-template-columns: repeat(2,1fr);
     gap:1.5rem;
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card{
@@ -236,7 +239,85 @@ a:hover,button:hover{
       }
   }
 
+  /* SOLO ROTACION */
+
+  /* @keyframes fadeOut1 {
+    0% {
+      opacity: 1;
+      display: flex;
+      transform:rotateY(0);
+    }
+    80%{
+        transform:rotateY(145deg);
+    }
+    99%{
+        display: flex;
+    }
+    100% {
+      opacity: 0;
+      transform:rotateY(145deg);
+      display: none;
+      
+    }
+  }
+  @keyframes fadeOut2{
+    0% {
+      opacity: 1;
+      display: flex;
+    }
+    80%{
+    }
+    99%{
+        display: flex;
+    }
+    100% {
+      opacity: 0;
+      display: none;
+      
+    }
+  } */
+  /* SIN ROTACION */
+
   @keyframes fadeOut1 {
+    0% {
+      opacity: 1;
+      display: flex;
+      transform: scale(1);
+    }
+    80%{
+        transform: scale(1.5);
+    }
+    99%{
+        display: flex;
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.5);
+      display: none;
+      
+    }
+  }
+  @keyframes fadeOut2{
+    0% {
+      opacity: 1;
+      display: flex;
+      transform: scale(1);
+    }
+    80%{
+        transform: scale(0.6);
+    }
+    99%{
+        display: flex;
+    }
+    100% {
+      opacity: 0;
+      display: none;
+      
+    }
+  }
+
+  /* COMPLETO */
+ /*  @keyframes fadeOut1 {
     0% {
       opacity: 1;
       display: flex;
@@ -272,7 +353,7 @@ a:hover,button:hover{
       display: none;
       
     }
-  }
+  } */
 
   @media (max-width: 900px) {
     main{
@@ -286,3 +367,5 @@ a:hover,button:hover{
         gap: 1rem;
     }
   }
+
+  /* generando efecto sin rotacion o sin escala: simplemente quitar todos los scale o todos los rotate */
