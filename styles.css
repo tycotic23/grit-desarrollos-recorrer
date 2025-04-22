@@ -156,8 +156,29 @@ h2{
     height: 100%;
     animation: fadeIn 1s ease-in;
 }
+
+
 .card--front img{
     width: 40%;
+}
+
+.soon::after{
+  content: 'PROXIMAMENTE';
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--orange);
+  color: white;
+  font-weight: bold;
+  font-size: clamp(0.8rem,1.5vw,1.3rem);
+  padding: clamp(0.6rem,1.5vw,1.5rem) 5rem;
+  transform: rotate(45deg) translate(30%,-30%);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: all 0.3s ease-in-out;
+}
+.soon:hover::after{
+  font-size: clamp(1rem,1.8vw,1.5rem);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 a,button{
@@ -209,19 +230,38 @@ a:hover,button:hover{
     font-size: clamp(0.8rem,1.3vw,1.3rem);
 }
 
-.card:hover .card--back{
+.card:not(.soon):hover .card--back{
     display: flex;
     animation: fadeIn 1s ease-in;
 }
-.card:hover .card--front{
+.card:not(.soon):hover .card--front{
     animation: fadeOut1 1.2s normal;
     opacity: 0;
     display: none;
     
 }
 
-.card:hover .card-bk{
+.card.soon .card--front{
+  transition: all 0.6s ease-in-out;
+}
+
+.card.soon:hover .card--front{
+
+  transform: scale(1.5);
+  
+}
+
+.card:not(.soon):hover .card-bk{
     filter: brightness(0.6);
+    
+}
+.card.soon .card-bk{
+  filter: blur(3px);
+  transition: all 1s ease-in-out;
+}
+.card.soon:hover .card-bk{
+    filter: blur(1px);
+    transform: scale(1.2);
     
 }
 
@@ -237,6 +277,19 @@ a:hover,button:hover{
         opacity: 1;
         
       }
+  }
+
+  @keyframes zoom {
+    0% {
+      transform: scale(1);
+    }
+    80%{
+        transform: scale(1.5);
+    }
+    100% {
+      transform: scale(1.5);
+      
+    }
   }
 
   /* SOLO ROTACION */
@@ -366,6 +419,11 @@ a:hover,button:hover{
         flex-direction: column;
         gap: 1rem;
     }
+
+    .soon::after{
+      font-size: 1rem;
+      padding: clamp(0.8rem,1.5vw,1rem) 4rem;
+      transform: rotate(45deg) translate(30%,-50%);
+    }
   }
 
-  /* generando efecto sin rotacion o sin escala: simplemente quitar todos los scale o todos los rotate */
